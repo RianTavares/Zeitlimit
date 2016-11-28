@@ -18,8 +18,25 @@ To get this running you will need:
 * and a form created in [google forms] (https://www.google.com/forms/about/)
 
 
+When you are logged in your google account e alredy have created your google form you have to choose the 
+*"<> Script editor"* option on menu like this image below:
 
+![tuto_form1] (/images/1.jpg)
 
+After that you have to paste all the code [Zeitlimit.js] (zeitlimit.js) in the script editor field like on this image below:
 
+![tuto_form2](/images/2.jpg)
 
+Then you should save your project **(CTRL+S)** and click on *"Run"* and right after that you should choose the option *"onOpen"* like the image below:
+
+![tuto_form3](/images/3.jpg)
+
+Click "ok" and "allow" on the pop ups that will appear
+
+Now your function **Zeitlimit** is already running. 
+Try to refresh your admin page and click on the puzzle icon like on this image below:
+
+![tuto_form3](/images/4.jpg)
+
+Enjoy it! :)
 
