@@ -1,4 +1,4 @@
-#Zeitlimit ![Logo](time.png)  
+#Zeitlimit ![Logo](/images/time.png)  
 
 
 ##Introduction /en/
