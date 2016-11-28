@@ -1,11 +1,10 @@
-/*------------------------------------------------------------------- HEADER -----------------------------------------------------------------------------------------------*/
 /*This function creates the menu in Administrator page when we open the page*/ 
      function onOpen(e) {
          FormApp.getUi()
         .createMenu('Zeitlimit')
-        .addItem('Morgen öffnen','showAlert')
-        .addItem('Schließen','showAlert2')
-        .addItem('Nachmittag öffnen','showAlert3')
+        .addItem('Abrir para hoje','showAlert')
+        .addItem('Fechar respostas','showAlert2')
+        .addItem('Abrir para próximo dia util','showAlert3')
         .addToUi();
      }
 
@@ -36,14 +35,13 @@ var friMonYear = fridayToMonday.getFullYear();                 // year plus 3 da
 
 
 
-/*------------------------------------------------------------------- OPEN AND CLOSE FUNCTIONS -----------------------------------------------------------------------------------------------*/
-
+//Open an Close functions
 
      /*This function turns the form on and set the current date*/  
      function openForm() {
        var form = FormApp.getActiveForm();
        form.setAcceptingResponses(true);
-       var item = form.setTitle('Bestellung Mittagessen für: ' + dayToday + '/' + monthToday + '/' + yearToday);
+       var item = form.setTitle('Respostas abertas para: ' + dayToday + '/' + monthToday + '/' + yearToday);
      }
 
      /*This function turns the form on and set date from the next day*/
@@ -51,11 +49,11 @@ var friMonYear = fridayToMonday.getFullYear();                 // year plus 3 da
        if(dayOfWeek == 5.0){
          var form = FormApp.getActiveForm();
          form.setAcceptingResponses(true);
-         var item = form.setTitle('Bestellung Mittagessen für: ' + friMonDay + '/' + friMonMonth + '/' + friMonYear);
+         var item = form.setTitle('Respostas abertas para: ' + friMonDay + '/' + friMonMonth + '/' + friMonYear);
         }else {
          var form = FormApp.getActiveForm();
          form.setAcceptingResponses(true);
-         var item = form.setTitle('Bestellung Mittagessen für: ' + tomorrowDay + '/' + tomorrowMonth + '/' + tomorrowYear);
+         var item = form.setTitle('Respostas abertas para: ' + tomorrowDay + '/' + tomorrowMonth + '/' + tomorrowYear);
         }
      } 
 
@@ -63,27 +61,26 @@ var friMonYear = fridayToMonday.getFullYear();                 // year plus 3 da
      function closeForm() {  
        var form = FormApp.getActiveForm();
        form.setAcceptingResponses(false);
-       var item = form.setTitle('Bestellung Mittagessen geschlossen');
-       form.setCustomClosedFormMessage("Sehr geehrte Gäste, Essensbestellung sind nur bis 10:00 Uhr möglich. Vielen Dank für Ihr Verständnis");
+       var item = form.setTitle('Recebimento de respostas fechado');
+       form.setCustomClosedFormMessage("Caro usuário, o recebimento de respostas está fechado no momento. Agradecemos sua compreensão :)");
      }
      
 
-/*------------------------------------------------------------------- SHOW ALERT FUNCTIONS -----------------------------------------------------------------------------------------------*/
-
+//Show Alerts functions
 
      //this function ask for the admnistrator if he or she really want to close the form
      function showAlert() {
        var ui = FormApp.getUi(); 
        var result = ui.alert(
-         'Konfirmation',
-         'Sind Sie sicher, dass Sie das Formular für heute öffnen wollen?',
+         'Confirmação',
+         'Tem certeza que deseja abrir o recebimento de respostas do formulário para hoje?',
          ui.ButtonSet.YES_NO);
 
        // Process the user's response.
        if (result == ui.Button.YES) {
          // User clicked "Yes".
          openForm();
-         ui.alert('öffene Form für das heutige Datum.');
+         ui.alert('As respostas estão abertas para data de hoje!');
        } else {
          // User clicked "No" or X in the title bar.
          //Do nothing
@@ -98,15 +95,15 @@ var friMonYear = fridayToMonday.getFullYear();                 // year plus 3 da
        var ui = FormApp.getUi(); // Same variations.
 
        var result = ui.alert(
-         'Konfirmation',
-         'Sind Sie sicher, dass Sie das Formular schließen wollen?',
+         'Confirmação',
+         'Tem certeza que deseja fechar o recebimento de respostas do formulário?',
          ui.ButtonSet.YES_NO);
 
        // Process the user's response.
        if (result == ui.Button.YES) {
          // User clicked "Yes".
          closeForm();
-         ui.alert('Bestellung Mittagessen geschlossene.');
+         ui.alert('Recebimento de respostas fechado.');
        } else {
          // User clicked "No" or X in the title bar.
          //Do nothingS
@@ -118,15 +115,15 @@ var friMonYear = fridayToMonday.getFullYear();                 // year plus 3 da
      function showAlert3() {
        var ui = FormApp.getUi(); // Same variations.
        var result = ui.alert(
-         'Konfirmation',
-         'Sind Sie sicher, dass Sie das Formular für Morgen öffnen wollen?',
+         'Confirmação',
+         'Tem certeza que deseja abrir o recebimento de respostas do formulário para o próximo dia útil?',
          ui.ButtonSet.YES_NO);
 
        // Process the user's response.
        if (result == ui.Button.YES) {
          // User clicked "Yes".
          openForm2();
-         ui.alert('öffene Form für morgen.');
+         ui.alert('As respostas estão abertas para o próximo dia úti!');
        } else {
          // User clicked "No" or X in the title bar.
          //Do nothingS
@@ -138,4 +135,4 @@ var friMonYear = fridayToMonday.getFullYear();                 // year plus 3 da
      //This function is just to finish the script when the user clicked "No" in one alert box
      function finished(){
      Logger.log("Script finished");
-     }
+}
