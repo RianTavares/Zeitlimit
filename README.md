@@ -1,5 +1,8 @@
 # Zeitlimit ![Logo](/images/time.png)  
 
+## What is this project? 
+While I was a Bosch intern in Germany I noticed the need for optimization in the lunch order process of the company's employees and customers, which at the time was done by phone or in person at the company's secretary. Then I developed a solution integrating an online order form with an order visualization spreadsheet and also a page so that users could access the menu of the week. In addition, I developed a logic in Javascript allowing the company's kitchen to close the order form and open it for the next business day when necessary. In addition to allowing employees and customers to order by cell phone or computer, I also inserted this system into the terminal at the company's entrance. It was a great optimization and an initiative that was recognized by all. Currently (2020) they still use this solution inside
+
 
 ## Introduction /en/
 This is a google form optimization. This script can be used to limit responses time in a form.
